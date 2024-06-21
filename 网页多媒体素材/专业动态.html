@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="">
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #FFFFFF;
+    color: #333;
+}
+
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        body {
+            height: 200vh;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid rgb(88, 88, 88);
+            padding: 10px;
+            background-color: #f5f5f5;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-family: 楷体;
+            font-weight: bold;
+            font-size: x-large;
+        }
+
+        .logo_img {
+            width: 100px;
+            margin-right: 10px;
+        }
+
+        .logo div {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .search_bar {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        .sidemenu {
+            display: flex;
+            list-style: none;
+            margin-bottom: 10px;
+        }
+
+        .sidemenu li {
+            margin-right: 20px;
+        }
+
+        .sidemenu a {
+            text-decoration: none;
+            color: grey;
+            font-weight: bold;
+        }
+
+        .search_box {
+            display: flex;
+            align-items: center;
+            padding: 5px;
+            border-radius: 5px;
+            width: 200px;
+        }
+
+        .search_inputbox {
+            border: none;
+            flex-grow: 1;
+            outline: none;
+            padding: 5px;
+        }
+
+        .search_img {
+            width: 24px;
+            cursor: pointer;
+        }
+
+        .navigation {
+            padding: 10px 0;
+        }
+
+        .menu {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 0;
+            margin: 0;
+        }
+
+        .menuitem {
+            position: relative;
+            padding: 10px 20px;
+            cursor: pointer;
+            color: black;
+        }
+
+        .menuitem:hover,
+        .menuitem:focus-within {
+            background-color: #555;
+        }
+
+        .submenu {
+            display: none;
+            z-index: 1;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #fff;
+            padding: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .submenu .subitem {
+            padding: 5px 10px;
+            white-space: nowrap;
+        }
+
+        .menuitem:hover .submenu,
+        .menuitem:focus-within .submenu {
+            display: block;
+        }
+
+        .submenu .subitem:hover,
+        .submenu .subitem:focus {
+            background-color: #f5f5f5;
+        }
+.banner {
+    text-align: center; /* 使用文本居中对图片水平居中 */
+    margin: auto;
+    overflow: hidden; /* 防止图片过大时溢出 */
+    position: relative; /* 为绝对定位的图片做准备 */
+}
+
+.banner-image {
+    display: block; /* 移除图片的默认行内间距 */
+    max-width: 100%; /* 限制图片最大宽度为100%，保持响应式 */
+    height: auto; /* 高度自适应 */
+    margin: 0 auto; /* 确保图片在容器内水平居中 */
+    position: relative; /* 相对于父容器定位，如果需要的话 */
+}
+.page-content {
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    max-width: 1200px; /* 根据实际页面宽度调整 */
+}
+
+.secondary-nav-wrapper {
+    flex: 0 0 auto; /* 不伸缩 */
+    width: 200px; /* 或其他宽度，根据页面布局确定 */
+    text-align: right;
+}
+
+
+.secondary-nav h3 {
+    margin: 0 0 10px;
+    font-size: 1.2em;
+    color: #FFFFFF;
+}
+
+.secondary-nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.secondary-nav ul li a {
+    text-decoration: none;
+    color: #000000;
+    transition: color 0.3s, font-weight 0.3s;
+}
+
+.secondary-nav ul li a:hover,
+.secondary-nav ul li a.active {
+    font-weight: bold;
+}
+
+.breadcrumb span {
+    margin: 0 5px;
+}
+
+.breadcrumb .current {
+    font-weight: bold;
+}
+.gradient-box {
+
+/* 内部背景颜色 */
+background-color: #D3E5EA;
+/* 边框可能增加的额外宽度 */
+box-sizing: border-box;
+position: relative; /* 确保子元素可以相对于它定位 */
+overflow: visible; /* 防止图标超出边框 */
+display: inline-block;
+width: 95%;
+}
+
+.icon {
+width: 50px; /* 图标宽度 */
+height: 50px; /* 图标高度 */
+background-image: "黑板图标2.png"; /* 图标图片路径 */
+background-size: contain; 
+position: absolute;
+bottom: 30px; /* 根据边框宽度调整图标底部位置 */
+right: 30px; /* 根据边框宽度调整图标右侧位置 */
+}
+
+.nav-container {
+    display: flex;
+    align-items: center; /* 确保子元素在同一水平高度上 */
+    justify-content: space-between;
+    padding: 20px;
+    color: #000000;
+}
+
+.nav-text {
+    margin-right: auto; /* 将文本推到左侧 */
+}
+
+.breadcrumb {
+    text-align: right;
+    margin-left: auto; /* 将面包屑导航推到右侧 */
+    font-size: 0.9em;
+}
+
+.breadcrumb span {
+    margin: 0 5px;
+}
+
+.breadcrumb .current {
+    font-weight: bold;
+}
+.page-footer {
+    background-image: linear-gradient(to bottom right, #a9a4d7, #89A9D5);
+    padding: 20px;
+    color: #fff; /* 文字颜色，根据背景色调整 */
+    text-align: center; /* 默认文本居中 */
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px; /* 根据需要调整最大宽度 */
+    margin: 0 auto; /* 水平居中 */
+}
+
+.contact-info, .links {
+    flex: 1; /* 两侧内容占据相等宽度 */
+    text-align: left; /* 文字靠左对齐 */
+}
+
+.contact-info h2 {
+    margin: 0 0 10px;
+    font-size: 1.5em;
+}
+
+.contact-info p {
+    margin: 0;
+    line-height: 1.5;
+}
+
+.links .link-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.link-item {
+    width: calc(50% - 10px); /* 每行两个图片链接，减去间距 */
+    margin-bottom: 10px; /* 每行图片链接下方的间距 */
+}
+
+.link-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px; /* 图片圆角 */
+    transition: transform 0.3s ease; /* 图片悬停效果 */
+}
+
+.link-item:hover img {
+    transform: scale(1.05); /* 图片悬停时放大 */
+}
+@media (max-width: 768px) {
+    .page-footer {
+        flex-direction: column;
+    }
+
+    .contact-info, .links {
+        margin-bottom: 20px; /* 堆叠时的间距 */
+    }
+
+    .link-row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .link-item {
+        margin-bottom: 10px; /* 垂直堆叠时的间距 */
+    }
+}
+</style>
+
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <img class="logo_img" src="校徽删去白背景版.png" alt="校徽">
+            <div>
+                <div>人文艺术与数字媒体学院 传播学</div>
+                <div>Communication Studies</div>
+            </div>
+        </div>
+        <div class="search_bar">
+            <ul class="sidemenu">
+                <li><a href="#">杭州电子科技大学</a></li>
+                <li><a href="#">联系我们</a></li>
+                <li><a href="#">ENGLISH</a></li>
+            </ul>
+            <div class="search_box">
+                <input class="search_inputbox" type="text" placeholder="请输入关键词...">
+                <img class="search_img" src="search.png" alt="搜索">
+            </div>
+        </div>
+    </header>
+
+    <nav class="navigation">
+        <ul class="menu">
+            <li class="menuitem"><a href="传播学网站619.html">首页</a>
+                <ul class="submenu">
+                    <li class="subitem"><a href="#">专业动态</a></li>
+                    <li class="subitem"><a href="#">教学安排</a></li>
+                    <li class="subitem"><a href="#">特色课程</a></li>
+                    <li class="subitem"><a href="#">学生作品</a></li>
+                </ul>
+            </li>
+            <li class="menuitem">专业介绍
+                <ul class="submenu">
+                    <li class="subitem"><a href="#">专业概况</a></li>
+                    <li class="subitem"><a href="#">专业动态</a></li>
+                    <li class="subitem"><a href="#">对外合作</a></li>
+                    <li class="subitem"><a href="#">本硕教学点设置</a></li>
+                </ul>
+            </li>
+            <li class="menuitem">师资队伍
+                <ul class="submenu">
+                    <li class="subitem"><a href="#">师资概况</a></li>
+                    <li class="subitem"><a href="#">分类简介</a></li>
+                    <li class="subitem"><a href="#">教师成果</a></li>
+                </ul>
+            </li>
+            <li class="menuitem">教学培养
+                <ul class="submenu">
+                    <li class="subitem"><a href="#">教学大纲</a></li>
+                    <li class="subitem"><a href="#">培养计划</a></li>
+                    <li class="subitem"><a href="#">教学安排</a></li>
+                    <li class="subitem"><a href="#">特色课程</a></li>
+                    <li class="subitem"><a href="#">学生发展</a></li>
+                </ul>
+            </li>
+            <li class="menuitem">学生作品
+                <ul class="submenu">
+                    <li class="subitem"><a href="#">影视荟萃</a></li>
+                    <li class="subitem"><a href="#">摄影集锦</a></li>
+                    <li class="subitem"><a href="#">趣味网页</a></li>
+                    <li class="subitem"><a href="#">创意剧本</a></li>
+                </ul>
+            </li>
+            <li class="menuitem">网上服务
+                <ul class="submenu">
+                    <li class="subitem"><a href="#">学生服务</a></li>
+                    <li class="subitem"><a href="#">教师服务</a></li>
+                    <li class="subitem"><a href="#">公共服务</a></li>
+                    <li class="subitem"><a href="#">平台服务</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+
+    <div class="banner">
+        <img src="插图.jpg" alt="" width=800px>
+    </div>
+    <div class="secondary-nav-wrapper" style="margin-left: 100px;">
+        <div class="secondary-nav" style="background-color: #C3DFFF; color: #FFFFFF;">
+            <h3 style="color: #FFFFFF;text-align: right;margin-right: 20px;line-height: 30px;">专业介绍</h3>
+            <ul>
+                <li><a href="#" style="color: #000000;line-height: 30px;text-align: right;margin-right: 20px;">专业概况</a></li>
+                <li><a href="#" style="color: #000000;line-height: 30px;text-align: right;margin-right: 20px;">专业动态</a></li>
+                <li><a href="#" style="color: #000000;line-height: 30px;text-align: right;margin-right: 20px;">对外合作</a></li>
+                <li><a href="#" style="color: #000000;line-height: 30px;text-align: right;margin-right: 20px;">本硕教学点设置</a></li>
+            </ul>
+        </div>
+    </div>
+<div class="main-content">
+    <div class="header-nav">
+        <div class="nav-container">
+                <div class="nav-text">
+                    <p style="font-size: larger;font-weight: bold;">专业动态</p>
+                </div>
+           <div class="breadcrumb" style="text-align: right;">
+            <span>首页</span> >
+            <span>专业介绍</span> >
+            <span>专业动态</span> >
+            <span class="current">当前位置</span>
+           </div> 
+        </div>
+    <hr>
+    <div class="gradient-box" style="margin: 30px;margin-top: 10px;margin-bottom: 10px;position: relative; overflow: visible;">
+        <div class="schedule-content" style="display: flex; justify-content: space-between; align-items: flex-start;">
+        <div class="schedule-section" style="mar">
+        <p style="text-align: center;font-weight: bold;line-height: 25px;color: #3972B1;margin-top: 30px;">
+            2024年“汉语桥”泰国师生来华夏令营开营！
+        </p>  
+        <p style="color: #999999;text-align: center;">
+            作者：杨哲人 编辑： 来源：新闻网 时间：2024-05-11 点击量：75
+        </p>
+        <p style="margin-left: 15px;margin-right: 15px;margin-bottom: 50px; text-align: justify;">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5月10日，杭州电子科技大学迎来了今年首批“汉语桥”线下来华夏令营营员，他们来自泰
+国13所高中，共有18名高中生和他们的带队老师。上午，夏令营开营仪式在行政楼三楼会议室举
+行。学校国际处、国际教育学院负责人，泰国丝路国际交流中心负责人，授课教师代表，全体夏
+令营营员及志愿者代表参加了开营仪式。
+<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;国际处副处长吴薇代表学校向来访的泰国师生表示热烈的欢迎。她详细介绍了学校的办学历
+史和特色，特别是国际中文教育的开展情况。吴薇表示，泰国师生的到来为学校的国际交流注入
+了新的活力，她期待同学们能够通过夏令营的丰富多彩活动，深入探索数字科技的魅力，感受中
+华文化的博大精深。国际教育学院副院长费沉涵为泰国师生介绍了学校来华留学教育的优势和奖
+学金政策。她表示，学校将为他们提供优质的教育资源和良好的学习环境，真诚地欢迎泰国同学
+们未来选择杭州电子科技大学，成为中泰文化交流的重要使者。雷哲超老师作为授课教师代表，
+向泰国师生介绍了本次夏令营的详细安排。她希望学员们在提高中文水平的同时，充分体验学校
+独特的“数字”智慧校园生活，深入了解江南地区的特色和现代化气息。
+<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;泰国丝路国际交流中心主任周庆宝对学校的精心安排表示衷心感谢。他介绍了夏令营学员的
+基本情况，讲述了泰国诗琳通公主学习中文的故事，鼓励他们珍惜此次学习交流的机会，认真学习中文，为中泰友好人文交流做出贡献。
+<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;本次“汉语桥”泰国师生来华夏令营由教育部中外语言交流合作中心主办，杭州电子科技大学承办。参加夏令营的泰国学生中文水平普遍达到HSK3级以上，这是他们首次踏上中国的土地。
+学校国际处为此次活动制定了以“走进杭电——看见数字科技”为主题的一系列活动方案，旨在
+全方位展示学校的办学特色和杭州的城市面貌，让泰国师生在轻松愉快的氛围中提高中文水平，
+深入了解中国文化。
+<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;为期12天的夏令营活动丰富多彩，包括中文课程、传统文化体验、智慧实验室参观、企业参访以及体育运动等多种形式。通过这些活动，泰国青少年学子将有机会亲身感受中国传统文化的魅力，领略浙江在数字化发展方面所取得的显著成就。
+        </p>
+        </div>
+        </div>
+        <div class="icon"><img src="报纸图标.png" alt=""></div>
+    </div>
+    </div>
+</div>
+<footer class="page-footer" style="margin-top: 30px;">
+    <div class="footer-content">
+        <div class="contact-info">
+            <h2>联系我们</h2>
+                <p>电话：12345678901</p>
+                <p>邮件：ryshcbx@abc.com</p>
+                <br>
+            <h2>地址</h2>
+            <p>浙江省杭州市钱塘区白杨街道2号大街</p>
+            <!-- 更多联系信息可以在这里添加 -->
+        </div>
+        <div class="links">
+            <h2>机构链接</h2>
+            <div class="link-row">
+                <a href="https://www.hdu.edu.cn/main.htm" class="link-item">
+                    <img src="去背景杭电汉字.png" alt="Image 1">
+                </a>
+                <a href="https://syxy.hdu.edu.cn/main.htm" class="link-item">
+                    <img src="人艺数法图片.jpg" alt="Image 2">
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
